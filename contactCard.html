@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Card</title>
+        <meta name="contactCard" content="Practicing jQuery Functions">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+
+        $(document).ready(function(){
+            $('button').click(function(){
+                var firstNameEntry=$('#fName').val();
+                var lastNameEntry=$('#LName').val();
+                var description=$('#description').val();
+                $('#cards').append('<div class="contactCard"> <h1>'+ firstNameEntry + ' '+ lastNameEntry +'</h1> <p> Click for description!</p></div>');
+                $('#backcards').hide().append('<div class="descriptionCard">'+ description + '</div>');
+                $(function(){
+                    $('#backcards').hide();
+                    $('#cards, #backcards').on('click',function(){
+                        $('#cards, #backcards').toggle();
+                   });
+                });
+            })
+        })
+
+        </script>
+    </head>
+
+    <body>
+        <div id="form">
+            First Name:
+            <input type="text" id="fName" name="firstName"><br>
+            Last Name:
+            <input type="text" id="LName" name="lastName">
+            <p>Description:</p>
+            <textarea id="description" name="lastName"></textarea><br>
+            <button>Add User</button>
+        </div>
+
+        <div id="cards"></div>
+        <div id="backcards"></div>
+
+
+
+
+    </body>
+</html>
